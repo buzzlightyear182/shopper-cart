@@ -27,8 +27,8 @@
 </div>
 
 <div class="well col-xs-12 col-sm-4 sidebar">
-  <h3>Admin Panel</h3>
   <ul class="nav nav-pills nav-stacked">
+    <%= render @cart %>
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "View products", products_path %></li>
     <li><%= link_to 'New Product', new_product_path %></li>
