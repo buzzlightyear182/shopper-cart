@@ -8,7 +8,7 @@
       <%= link_to "Shopper", root_path, :class => "navbar-brand" %>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-left">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "View products", products_path %></li>
       <li><%= link_to 'New Product', new_product_path %></li>
@@ -28,9 +28,11 @@
       <!-- <form class="navbar-form navbar-left">
           <input type="text" class="form-control col-lg-8" placeholder="Search">
       </form> -->
-     <!--  <ul class="nav navbar-nav navbar-right">
-          <li><a href="javascript:void(0)">Link</a></li>
-          <li class="dropdown">
+      <ul class="nav navbar-nav navbar-right">
+        <% if session[:cart_id] %>
+          <li><%= link_to 'View Cart', cart_path(session[:cart_id]) %></li>
+        <% end %>
+          <!-- <li class="dropdown">
               <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li><a href="javascript:void(0)">Action</a></li>
@@ -39,7 +41,7 @@
                   <li class="divider"></li>
                   <li><a href="javascript:void(0)">Separated link</a></li>
               </ul>
-          </li>
-      </ul> -->
+          </li> -->
+      </ul>
   </div>
 </div>

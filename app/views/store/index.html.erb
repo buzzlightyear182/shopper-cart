@@ -1,5 +1,8 @@
 <% if notice %>
-  <p id="notice"><%= notice %></p>
+  <div class="alert alert-dismissable alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <p id="notice"><%= notice %></p>
+  </div>
 <% end %>
 
 <div class="well" id="store_header">
@@ -24,6 +27,7 @@
 </div>
 
 <div class="well col-xs-12 col-sm-4 sidebar">
+  <h3>Admin Panel</h3>
   <ul class="nav nav-pills nav-stacked">
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "View products", products_path %></li>
