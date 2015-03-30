@@ -19,7 +19,7 @@
           <h4><%= link_to product.title, product_path(id: product.id) %></h4>
           <p><%= truncate(strip_tags(product.body), length: 80) %></p>
           <p><%= sprintf("Php%0.02f", product.price) %></p>
-          <%= button_to "Add to cart", line_items_path(product_id: product.id), :class => "btn btn-primary" %>
+          <%= button_to "Add to cart", line_items_path(product_id: product.id), remote: true, :class => "btn btn-primary" %>
       </div>
       <% end %>
     <% end %>
@@ -28,7 +28,9 @@
 
 <div class="well col-xs-12 col-sm-4 sidebar">
   <ul class="nav nav-pills nav-stacked">
-    <%= render @cart %>
+    <% unless @cart.line_items.empty? %>
+      <%= render @cart %>
+    <% end %>
     <li><%= link_to "Home", root_path %></li>
     <li><%= link_to "View products", products_path %></li>
     <li><%= link_to 'New Product', new_product_path %></li>

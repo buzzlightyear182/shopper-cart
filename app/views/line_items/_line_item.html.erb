@@ -1,7 +1,11 @@
-<tr>
-  <td><%= image_tag line_item.product.image(:thumb) %></td>
-  <td><%= line_item.product.title %></td>
-  <td><%= line_item.quantity %></td>
-  <!-- <td><%= sprintf("Php%0.02f", line_item.product.price) %></td> -->
-  <td><%= sprintf("Php%0.02f", line_item.total_price) %></td>
-</tr>
+<% if line_item == @current_item %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+    <td><%= image_tag line_item.product.image(:thumb) %></td>
+    <td><%= line_item.product.title %></td>
+    <td><%= line_item.quantity %></td>
+    <!-- <td><%= sprintf("Php%0.02f", line_item.product.price) %></td> -->
+    <td><%= sprintf("Php%0.02f", line_item.total_price) %></td>
+  </tr>
+<% end %>
