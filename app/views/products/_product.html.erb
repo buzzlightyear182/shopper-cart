@@ -1,0 +1,10 @@
+<div class="panel panel-default col-xs-12 col-sm-3">
+  <div class="panel-heading">
+    <%= image_tag product.image(:medium) %>
+  </div>
+  <div class="panel-body">
+    <h4><%= link_to product.title, product_path(id: product.id) %></h4>
+    <p><%= truncate(strip_tags(product.body), length: 80) %></p>
+    <p>Php <%= product.price %></p>
+  </div>
+</div>
