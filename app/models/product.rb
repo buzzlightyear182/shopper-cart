@@ -3,4 +3,8 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   validates :title, :body, :price, presence: true
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end

@@ -1,18 +1,11 @@
-$light-blue: #B3E5FC;
-
 .container {
   padding-top: 20px;
 }
 
-.jumbotron {
-  background-color: $light-blue !important;
+.entry img {
+  width: 100%;
 }
 
-.panel.col-sm-3{
-  padding: 0;
-  margin-left: 2px;
-  margin-right: 2px;
-  img {
-    width: 100%;
-  }
+.sidebar {
+  float: right;
 }

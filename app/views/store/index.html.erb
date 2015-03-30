@@ -1,6 +1,31 @@
-<div class="page-header">
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="well" id="store_header">
   <h1>Shopper<br/><small>We sell books made for the creative person in you <i class="mdi-action-favorite"></i></small></h1>
 </div>
 
-<h3>Listing Products</h3>
-<%= render partial: 'products/product', collection: @products %>
+<div class="well col-xs-12 col-sm-8">
+  <h3>Listing Products</h3>
+  <% cache ['store', Product.latest] do %>
+    <% @products.each do |product| %>
+      <% cache ['entry', product] do %>
+        <div class="entry col-sm-4">
+          <%= image_tag product.image(:medium) %>
+          <h4><%= link_to product.title, product_path(id: product.id) %></h4>
+          <p><%= truncate(strip_tags(product.body), length: 80) %></p>
+          <p>Php <%= product.price %></p>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="well col-xs-12 col-sm-4 sidebar">
+  <ul class="nav nav-pills nav-stacked">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "View products", products_path %></li>
+    <li><%= link_to 'New Product', new_product_path %></li>
+  </ul>
+</div>

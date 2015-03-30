@@ -1,4 +1,5 @@
-<div class="panel panel-default col-xs-12 col-sm-3">
+<% cache ['entry', product] do %>
+<div class="panel col-xs-12 col-sm-3 entry">
   <div class="panel-heading">
     <%= image_tag product.image(:medium) %>
   </div>
@@ -8,3 +9,4 @@
     <p>Php <%= product.price %></p>
   </div>
 </div>
+<% end %>
