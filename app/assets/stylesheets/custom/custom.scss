@@ -1,3 +1,5 @@
+$blue: #2196f3;
+
 .container {
   padding-top: 20px;
 }
@@ -12,4 +14,8 @@
 
 .cart_table tr:last-child{
   font-weight: bold;
+}
+
+#store_header {
+  color: $blue;
 }

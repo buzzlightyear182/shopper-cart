@@ -29,7 +29,7 @@
           <input type="text" class="form-control col-lg-8" placeholder="Search">
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-      <% if @cart %>
+      <% if @cart && (@cart.line_items.count >= 1) %>
         <li><%= link_to 'View Cart', cart_path(@cart.id) %></li>
       <% end %>
           <!-- <li class="dropdown">
