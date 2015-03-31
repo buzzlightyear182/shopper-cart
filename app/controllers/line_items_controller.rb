@@ -68,6 +68,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Line item was successfully removed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

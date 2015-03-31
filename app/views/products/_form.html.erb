@@ -1,15 +1,16 @@
-<%= form_for @product, :html => {:class => 'new_product form-horizontal'} do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation" class="alert alert-dismissable alert-danger">
+<% if @product.errors.any? %>
+  <div id="error_explanation" class="alert alert-dismissable alert-danger">
     <button type="button" class="close" data-dismiss="alert">×</button>
-      <h4><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h4>
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <h4><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h4>
+    <ul>
+    <% @product.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @product, :html => {:class => 'new_product form-horizontal'} do |f| %>
 
   <div class="form-group">
     <%= f.label :title, :class => "col-lg-2 control-label" %>
@@ -41,7 +42,7 @@
 
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-      <%= link_to 'Back', products_path, :class=>"btn btn-default" %>
+      <%= link_to 'Back', :back, :class=>"btn btn-default" %>
       <%= f.submit "Create product", :class => "btn btn-primary btn-raised" %>
     </div>
   </div>

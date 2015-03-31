@@ -1,7 +1,13 @@
-<h1>New Order</h1>
+<div class="col-xs-12 col-sm-8">
+  <h1>New Order</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<div class="col-lg-2 col-lg-offset-2">
-<%= link_to 'Back', orders_path, :class => 'btn btn-primary' %>
+  <div class="col-lg-2 col-lg-offset-2">
+  <%= link_to 'Back', orders_path, :class => 'btn btn-primary' %>
+  </div>
 </div>
+
+<% unless @cart.line_items.empty? %>
+  <%= render 'components/sidebar' %>
+<% end %>

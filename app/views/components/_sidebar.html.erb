@@ -1,0 +1,13 @@
+<div class="well well-sm col-xs-12 col-sm-4 sidebar">
+  <ul class="nav nav-pills nav-stacked">
+  <% if user_signed_in? %>
+    <li><%= link_to "Logout", destroy_user_session_path, method: "DELETE" %></li>
+  <% else %>
+    <li><%= link_to "Login", new_user_session_path %></li>
+    <li><%= link_to "Sign-Up", new_user_registration_path %></li>
+  <% end %>
+  <% unless @cart.line_items.empty? %>
+    <%= render @cart %>
+  <% end %>
+  </ul>
+</div>
