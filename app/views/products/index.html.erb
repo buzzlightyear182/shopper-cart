@@ -1,12 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class='col-sm-8'>
   <h1>Product Listing</h1>
-</div>
-<div class='col-sm-4'>
-  <%= go_back %>
-  <%= new_product %>
-</div>
-<div class='col-sm-12'>
+  <h5><%= go_back %> | <%= new_product %></h5>
+<div class='col-sm-8'>
 <table class="table table-striped table-hover ">
   <tbody>
     <% @products.each do |product| %>
@@ -25,3 +20,5 @@
   </tbody>
 </table>
 </div>
+
+<%= render 'components/sidebar' %>

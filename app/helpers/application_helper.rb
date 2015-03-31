@@ -8,7 +8,7 @@ module ApplicationHelper
 
   def sidebar
     if user_signed_in? && current_user.admin?
-      show_product_index
+      show_admin_panel
     else
       show_cart
     end
@@ -20,20 +20,24 @@ module ApplicationHelper
     end
   end
 
-  def show_product_index
-    content_tag(:li, view_products)
+  def show_admin_panel
+    render 'admin/panel'
   end
 
   def go_back
-    link_to "Back", :back, :class => "btn btn-primary"
+    link_to "Back", :back
   end
 
   def new_product
-    link_to "Add product", new_product_path, :class => "btn btn-primary"
+    link_to "Add product", new_product_path
   end
 
   def view_products
     link_to "View products", products_path
+  end
+
+  def view_orders
+    link_to "View orders", orders_path
   end
 
 end

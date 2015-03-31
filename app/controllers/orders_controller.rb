@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
   def new
 
     if @cart.line_items.empty?
-      redirect_to root_path, notice: "Your cart is empty"
+      redirect_to store_path, notice: "Your cart is empty"
       return
     end
 
@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         OrderNotifier.received(@order).deliver
 
-        format.html { redirect_to root_path, notice: 'Thank you for your order.' }
+        format.html { redirect_to store_path, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
