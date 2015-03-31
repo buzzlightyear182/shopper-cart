@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/index', as: 'admin'
+
   devise_for :users
   resources :orders
   resources :line_items
@@ -7,9 +9,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'store#index'
+  root 'store#index', as: 'store'
 
   resources :products
+
+  patch 'orders/:id/ship' => 'orders#ship', as: 'ship_order'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

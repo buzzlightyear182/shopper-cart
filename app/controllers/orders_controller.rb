@@ -1,12 +1,13 @@
 class OrdersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :ship, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @total_orders = Order.all
+    render 'admin/index'
   end
 
   # GET /orders/1
@@ -61,6 +62,14 @@ class OrdersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def ship
+    @order.update(shipped?: true)
+    if @order.shipped?
+      OrderNotifier.shipped(@order).deliver
+      redirect_to admin_path, notice: "Order has been shipped"
     end
   end
 

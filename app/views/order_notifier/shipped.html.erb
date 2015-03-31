@@ -3,8 +3,15 @@
 <div>
   <p>Dear <%= @order.name %>,</p>
   <p>This is to inform you your order with the following items has been shipped:</p>
-  <div>
-    <%= render @order.line_items %>
-  </div>
+  <table>
+    <% @order.line_items.each do |item| %>
+      <tr>
+        <td><%= image_tag item.product.image(:thumb) %></td>
+        <td><%= item.product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= sprintf("Php%0.02f", item.total_price) %></td>
+      </tr>
+    <% end %>
+  </table>
   <p>Thank you and we look forward to your next transaction!</p>
 </div>

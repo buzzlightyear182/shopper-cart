@@ -1,0 +1,14 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= order.name %></td>
+  <td><%= order.email %></td>
+  <td><%= sprintf("Php%0.02f", order.total_price) %></td>
+  <td><%= order.shipped? %></td>
+  <td><%= link_to "View", order %></td>
+  <% if current_user.admin? %>
+  <td>
+    <%= link_to "Ship", ship_order_path(order.id), method: "PATCH", remote: true %>
+  </td>
+  <td><%= link_to "Cancel", order, method: "DELETE" %></td>
+  <% end %>
+</tr>

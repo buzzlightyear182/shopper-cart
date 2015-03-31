@@ -5,7 +5,16 @@
   <p>Thank you for ordering with Shopper store.</p>
   <p>Please be advised we are currently processing your order with the following items:</p>
   <div>
-    <%= render @order.line_items %>
+  <table>
+    <% @order.line_items.each do |item| %>
+      <tr>
+        <td><%= image_tag item.product.image(:thumb) %></td>
+        <td><%= item.product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= sprintf("Php%0.02f", item.total_price) %></td>
+      </tr>
+    <% end %>
+  </table>
   </div>
   <p>We will send another email when order has been shipped.</p>
 </div>
