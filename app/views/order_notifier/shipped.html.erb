@@ -1,0 +1,10 @@
+<h1>Your Order <%= @order.id %> has been shipped</h1>
+
+<div>
+  <p>Dear <%= @order.name %>,</p>
+  <p>This is to inform you your order with the following items has been shipped:</p>
+  <div>
+    <%= render @order.line_items %>
+  </div>
+  <p>Thank you and we look forward to your next transaction!</p>
+</div>

@@ -1,0 +1,11 @@
+<h1>Your Order <%= @order.id %> has been received</h1>
+
+<div>
+  <p>Dear <%= @order.name %>,</p>
+  <p>Thank you for ordering with Shopper store.</p>
+  <p>Please be advised we are currently processing your order with the following items:</p>
+  <div>
+    <%= render @order.line_items %>
+  </div>
+  <p>We will send another email when order has been shipped.</p>
+</div>

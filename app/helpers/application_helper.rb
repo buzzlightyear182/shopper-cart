@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def hidden_div_if(condition, attributes = {}, &block)
+  def hidden_li_if(condition, attributes = {}, &block)
     if condition
       attributes["style"] = "display: none"
     end

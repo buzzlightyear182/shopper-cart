@@ -7,5 +7,6 @@
     <td><%= line_item.quantity %></td>
     <!-- <td><%= sprintf("Php%0.02f", line_item.product.price) %></td> -->
     <td><%= sprintf("Php%0.02f", line_item.total_price) %></td>
+    <td><%= link_to "Remove", line_item, :method => :delete, :confirm => 'Are You Sure', :class => "small" %> </td>
   </tr>
 <% end %>
