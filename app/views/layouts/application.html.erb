@@ -8,8 +8,30 @@
 <body>
 
 <div class="container">
-  <%= render 'components/navigation' %>
-  <%= yield %>
+
+  <% if notice %>
+    <div class="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <div class="well well-lg" id="store_header">
+    <h1>Shopper</h1>
+    <h4><em>We sell books made for the creative person in you <i class="mdi-action-favorite"></i></em></h4>
+  </div>
+
+  <div class="col-xs-12 col-sm-8">
+    <%= yield %>
+  </div>
+
+  <% unless @cart.line_items.empty? %>
+    <div class="well well-sm col-xs-12 col-sm-4 sidebar">
+      <ul class="nav nav-pills nav-stacked">
+        <%= render @cart %>
+      </ul>
+    </div>
+  <% end %>
 </div>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

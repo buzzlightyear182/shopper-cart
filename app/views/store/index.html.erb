@@ -1,16 +1,10 @@
-<% if notice %>
-  <div class="alert alert-dismissable alert-success">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <p id="notice"><%= notice %></p>
-  </div>
-<% end %>
-
+<!--
 <div class="well well-lg" id="store_header">
   <h1>Shopper</h1>
   <h4><em>We sell books made for the creative person in you <i class="mdi-action-favorite"></i></em></h4>
-</div>
+</div> -->
 
-<div class="col-xs-12 col-sm-8">
+<!-- <div class="col-xs-12 col-sm-8"> -->
   <h3>Listing Products</h3>
   <% cache ['store', Product.latest] do %>
     <% @products.each do |product| %>
@@ -25,15 +19,6 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
+<!-- </div> -->
 
-<div class="col-xs-12 col-sm-4 sidebar">
-  <ul class="nav nav-pills nav-stacked">
-    <% unless @cart.line_items.empty? %>
-      <%= render @cart %>
-    <% end %>
-    <!-- <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "View products", products_path %></li>
-    <li><%= link_to 'New Product', new_product_path %></li> -->
-  </ul>
-</div>
+
