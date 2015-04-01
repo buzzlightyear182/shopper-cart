@@ -1,4 +1,4 @@
-<h2>Your Cart</h2>
+<h2><%= t('.title') %></h2>
 <table class="table table-striped table-hover cart_table">
   <thead>
     <tr>
@@ -17,11 +17,11 @@
       <td>Total Price</td>
       <!-- <td></td> -->
       <td></td>
-      <td><%= sprintf("Php%0.02f", cart.total_price) %></td>
+      <td><%= number_to_currency(cart.total_price) %></td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-<%= button_to "Checkout", new_order_path, method: :get, :class => 'btn btn-success' %>
-<%= button_to "Empty cart", cart, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+<%= button_to t('.checkout'), new_order_path, method: :get, :class => 'btn btn-success' %>
+<%= button_to t('.empty'), cart, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>

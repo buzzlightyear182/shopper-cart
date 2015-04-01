@@ -20,4 +20,33 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+
+  layouts:
+    application:
+      title: "Shopper"
+      subtitle: "We sell books made for the creative person in you"
+
+  store:
+    index:
+      header_html: "Product List"
+      add_html: "Add to Cart"
+
+  carts:
+    cart:
+      title: "Your Cart"
+      checkout: "Checkout"
+      empty: "Empty Cart"
+
+  line_items:
+    line_item:
+      remove: "Remove"
+
+  number:
+    currency:
+      format:
+        unit: "Php"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
+

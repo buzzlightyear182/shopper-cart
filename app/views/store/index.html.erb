@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-8">
-  <h3>Listing Products</h3>
+  <h3><%= t('.header_html') %></h3>
   <% cache ['store', Product.latest] do %>
     <% @products.each do |product| %>
       <% cache ['entry', product] do %>
@@ -8,7 +8,7 @@
           <h4><%= link_to product.title, product_path(id: product.id) %></h4>
           <p><%= truncate(strip_tags(product.body), length: 80) %></p>
           <p><%= sprintf("Php%0.02f", product.price) %></p>
-          <%= button_to "Add to cart", line_items_path(product_id: product.id), :class => "btn btn-primary" %>
+          <%= button_to t('.add_html'), line_items_path(product_id: product.id), :class => "btn btn-primary" %>
       </div>
       <% end %>
     <% end %>

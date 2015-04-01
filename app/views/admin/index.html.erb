@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
-  <h1>Welcome <%= current_user.username %>!</h1>
-  <p>It's <%= Time.now %></p>
-  <div>
-    <p>We have <%= pluralize(@total_orders.count, "order") %></p>
-
+<h1>Welcome <%= current_user.username %>!</h1>
+<p>It's <%= Time.now %></p>
+<div>
+  <p>We have <%= pluralize(@total_orders.count, "order") %></p>
+</div>
 <div class="col-xs-12 col-sm-8">
   <table class="table table-striped table-hover order_table">
     <thead>
