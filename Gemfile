@@ -50,7 +50,11 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'sendgrid'
+  gem 'rails_12factor'
+end
+
 gem 'devise'
 gem "font-awesome-sass"
 gem 'paperclip'
