@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     resources :orders
     resources :line_items
     resources :carts
+    resources :products
     root 'store#index', as: 'store', via: :all
   end
 
-  resources :products
+  # resources :products
 
   patch 'orders/:id/ship' => 'orders#ship', as: 'ship_order'
 
