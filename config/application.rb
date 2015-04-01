@@ -26,6 +26,6 @@ module Shopper
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-material-design","assets","fonts")
 
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
-    # config.assets.enabled = true
+    config.assets.enabled = true
   end
 end
