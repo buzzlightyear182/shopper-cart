@@ -53,6 +53,7 @@ end
 group :production do
   gem 'sendgrid'
   gem 'rails_12factor'
+  gem 'bower-rails'
 end
 
 gem 'devise'

@@ -7,7 +7,7 @@
   <td><%= link_to "View", order %></td>
   <% if current_user.admin? %>
   <td>
-    <%= link_to "Ship", ship_order_path(order.id), method: "PATCH", remote: true %>
+    <%= link_to "Ship", ship_order_path(order.id), method: "PATCH"%>
   </td>
   <td><%= link_to "Cancel", order, method: "DELETE" %></td>
   <% end %>
