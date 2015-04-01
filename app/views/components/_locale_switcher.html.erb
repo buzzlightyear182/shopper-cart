@@ -1,0 +1,11 @@
+<div class="locale col-xs-2">
+  <div class="col-xs-12 form-group">
+    <%= form_tag store_path, :class => 'locale' do %>
+      <%= select_tag 'set_locale',
+        options_for_select(LANGUAGES, I18n.locale.to_s),
+        onchange: 'this.form.submit()', :class => 'form-control' %>
+    </div>
+    <!-- <%= submit_tag "Set locale", :class => "btn btn-flat btn-xs" %> -->
+      <%= javascript_tag "$('.locale input').hide()" %>
+    <% end %>
+</div>

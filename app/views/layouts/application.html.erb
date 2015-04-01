@@ -13,7 +13,9 @@
     <%= render 'components/notice' %>
   <% end %>
 
-  <div class="well well-lg" id="store_header">
+  <%= render 'components/locale_switcher' %>
+
+  <div class="col-xs-12 well well-lg" id="store_header">
     <h1><%= t('.title') %></h1>
     <h4><em><%= t('.subtitle') %> <i class="mdi-action-favorite"></i></em></h4>
   </div>

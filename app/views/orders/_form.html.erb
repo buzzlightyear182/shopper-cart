@@ -2,7 +2,8 @@
   <% if @order.errors.any? %>
     <div id="error_explanation" class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert">×</button>
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <p><%= raw t('errors.template.header', count: @order.errors.count, model: t('activerecord.models.order')) %>.</p>
+      <p><%= t('errors.template.body') %></p>
 
       <ul>
       <% @order.errors.full_messages.each do |message| %>
@@ -13,33 +14,33 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, :class => "col-lg-2 control-label" %>
+    <%= f.label :name, t('.name'),:class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :name, :class => "form-control", size: 40 %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :address, :class => "col-lg-2 control-label" %>
+    <%= f.label :address, t('.address_html'), :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_area :address, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :email, :class => "col-lg-2 control-label" %>
+    <%= f.label :email, t('.email'), :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :email, :class => "form-control", size: 40 %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :pay_type, :class => "col-lg-2 control-label" %>
+    <%= f.label :pay_type, t('.pay_type'), :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.select :pay_type, Order::PAYMENT_TYPES, {prompt: 'Select a payment method'}, {required: 'true', autofocus: 'true', :class => 'form-control'}  %>
+      <%= f.select :pay_type, Order::PAYMENT_TYPES, {prompt: t('.pay_prompt_html')}, {required: 'true', autofocus: 'true', :class => 'form-control'}  %>
       </select>
     </div>
   </div>
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-    <%= f.submit "Proceed to order", :class => 'btn btn-success' %>
+    <%= f.submit  t('.submit'), :class => 'btn btn-success' %>
     </div>
   </div>
 <% end %>

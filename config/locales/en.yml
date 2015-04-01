@@ -21,6 +21,8 @@
 
 en:
 
+  thanks: "Thank you for your order"
+
   layouts:
     application:
       title: "Shopper"
@@ -50,3 +52,14 @@ en:
         delimiter: ","
         format: "%u%n"
 
+  orders:
+    new:
+      title: "New Order"
+      legend: "Please fill in your details"
+    form:
+      name: "Name"
+      address_html: "Address"
+      email: "E-mail"
+      pay_type: "Pay with"
+      pay_prompt_html: "Select a payment method"
+      submit: "Place Order"
